@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Snake Game{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'game/css/styles.css' %}">
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="{% url 'start_game' %}">Start Game</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <header>
+                <h1>Snake Game</h1>
+            </header>
 
+            <main>
+                {% block content %}
+                <canvas id="gameCanvas" width="400" height="400"></canvas>
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+    <div id="scoreBox">Score: 0</div>
+
+    {% block extra_scripts %}{% endblock %}
 </body>
 </html>
