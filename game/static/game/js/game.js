@@ -50,7 +50,7 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = (i == 0) ? "#4C9583" : "#376F60";
+        ctx.fillStyle = (i == 0) ? "#49C75D" : "#88C635";
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
 
         ctx.strokeStyle = "white";
