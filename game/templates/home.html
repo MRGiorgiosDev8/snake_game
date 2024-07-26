@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h2>Welcome to the Snake Game</h2>
+    <img src="{% static 'game/images/snakecartoon1.png' %}" alt="Snake Cartoon"  class="img-snake">
 {% endblock %}
