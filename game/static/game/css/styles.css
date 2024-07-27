@@ -60,17 +60,26 @@ h1, h2 {
 }
 
 .sidebar ul li a {
-    color: #fff;
+    color: #3c3b3b;
     text-decoration: none;
     display: block;
     padding: 10px;
-    background: #7272725e;
+    background: #f3f9eb;
     border-radius: 5px;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1.2em;
+    font-style: normal;
+    text-align: center;
+    border: 1px solid rgba(156, 155, 155, 0.29);
     transition: all ease-in-out 0.3s;
 }
 
 .sidebar ul li a:hover {
-    background: #72727238;
+    background: #eec06abc;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .content {
