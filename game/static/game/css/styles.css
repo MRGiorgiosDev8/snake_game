@@ -10,7 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #e7fcdd80;
+    background-color: #ccf7b05b;
 }
 
 h2 {
@@ -48,6 +48,7 @@ h1, h2 {
     color: #2c8c39d2;
     text-align: center;
     opacity: 0.8;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.82);
 }
 
 .sidebar ul {
