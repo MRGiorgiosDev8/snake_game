@@ -6,7 +6,15 @@
 
 {% block content %}
     <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div id="scoreBox">Score:0</div>
+    <div id="scoreBox">Score: 0</div>
+
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <p>Game Over!</p>
+            <p id="finalScore"></p>
+            <button id="restartBtn">Restart</button>
+        </div>
+    </div>
 {% endblock %}
 
 {% block extra_scripts %}

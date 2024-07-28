@@ -2,6 +2,11 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const scoreBox = document.getElementById("scoreBox");
 
+const modal = document.getElementById("gameOverModal");
+const closeBtn = document.getElementsByClassName("close")[0];
+const restartBtn = document.getElementById("restartBtn");
+const finalScore = document.getElementById("finalScore");
+
 const box = 20;
 let snake;
 let food;
@@ -10,6 +15,7 @@ let d;
 let game;
 
 document.addEventListener("keydown", direction);
+restartBtn.addEventListener("click", restartGame);
 
 function init() {
     snake = [];
@@ -23,6 +29,7 @@ function init() {
     scoreBox.textContent = "Score: " + score;
     if (game) clearInterval(game);
     game = setInterval(draw, 100);
+    modal.style.display = "none";
 }
 
 function direction(event) {
@@ -44,6 +51,39 @@ function collision(newHead, snake) {
         }
     }
     return false;
+}
+
+function sendScore(score) {
+    fetch('/save_score/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({ score: score })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Score saved:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
 
 function draw() {
@@ -88,11 +128,21 @@ function draw() {
 
     if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
         clearInterval(game);
-        setTimeout(init, 200); 
+        sendScore(score);
+        showGameOverModal();
         return;
     }
 
     snake.unshift(newHead);
+}
+
+function showGameOverModal() {
+    finalScore.textContent = "Score: " + score;
+    modal.style.display = "flex";
+}
+
+function restartGame() {
+    init();
 }
 
 init();
