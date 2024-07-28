@@ -97,7 +97,7 @@ header, footer {
     width: 100%;
     padding: 1em;
     text-align: center;
-    background-color:  rgba(189, 218, 189, 0.458);
+    background-color:  #fcfef9a4;
     border-radius: 5px;
     margin-bottom: 10px;
     border: 1px solid rgba(156, 155, 155, 0.29);
@@ -142,7 +142,7 @@ canvas {
     border-radius: 5px;
     font-size: 1.6em;
     color: #e5615ce5;
-    background: #f3f9eb;
+    background: #fcfef9a4;
     border: 1px solid rgba(156, 155, 155, 0.29);
     font-family: "Black Ops One", system-ui;
     font-weight: 400;
