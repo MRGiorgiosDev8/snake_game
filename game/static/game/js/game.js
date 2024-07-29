@@ -2,8 +2,11 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const scoreBox = document.getElementById("scoreBox");
 
-const modal = document.getElementById("gameOverModal");
-const closeBtn = document.getElementsByClassName("close")[0];
+const usernameModal = document.getElementById("usernameModal");
+const startGameBtn = document.getElementById("startGameBtn");
+const usernameInput = document.getElementById("usernameInput");
+
+const gameOverModal = document.getElementById("gameOverModal");
 const restartBtn = document.getElementById("restartBtn");
 const finalScore = document.getElementById("finalScore");
 
@@ -13,9 +16,21 @@ let food;
 let score;
 let d;
 let game;
+let username;
 
 document.addEventListener("keydown", direction);
 restartBtn.addEventListener("click", restartGame);
+startGameBtn.addEventListener("click", startGame);
+
+function startGame() {
+    username = usernameInput.value;
+    if (username) {
+        usernameModal.style.display = "none";
+        init();
+    } else {
+        alert("Please enter your name.");
+    }
+}
 
 function init() {
     snake = [];
@@ -29,7 +44,7 @@ function init() {
     scoreBox.textContent = "Score: " + score;
     if (game) clearInterval(game);
     game = setInterval(draw, 100);
-    modal.style.display = "none";
+    gameOverModal.style.display = "none";
 }
 
 function direction(event) {
@@ -60,7 +75,7 @@ function sendScore(score) {
             'Content-Type': 'application/json',
             'X-CSRFToken': getCookie('csrftoken')
         },
-        body: JSON.stringify({ score: score })
+        body: JSON.stringify({ score: score, username: username })
     })
     .then(response => response.json())
     .then(data => {
@@ -138,11 +153,12 @@ function draw() {
 
 function showGameOverModal() {
     finalScore.textContent = "Score: " + score;
-    modal.style.display = "flex";
+    gameOverModal.style.display = "flex";
 }
 
 function restartGame() {
-    init();
+    init();  
 }
 
 init();
+usernameModal.style.display = "flex";  

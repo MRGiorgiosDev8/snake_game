@@ -14,10 +14,12 @@ class SaveScoreView(View):
     def post(self, request):
         data = json.loads(request.body)
         score_value = data.get('score')
-        if score_value is not None:
-            Score.objects.create(score=score_value)
+        username = data.get('username')
+        if score_value is not None and username:
+            Score.objects.create(score=score_value, username=username)
             return JsonResponse({'status': 'success'})
         return JsonResponse({'status': 'fail'}, status=400)
+
 
 def score_board(request):
     scores = Score.objects.all().order_by('-score')[:10]
