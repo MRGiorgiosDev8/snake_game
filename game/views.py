@@ -19,12 +19,6 @@ class SaveScoreView(View):
             return JsonResponse({'status': 'success'})
         return JsonResponse({'status': 'fail'}, status=400)
 
-class ScoreListView(View):
-    def get(self, request):
-        scores = Score.objects.all().order_by('-score')[:10]
-        scores_data = [{'score': score.score, 'timestamp': score.timestamp} for score in scores]
-        return JsonResponse(scores_data, safe=False)
-
 def score_board(request):
     scores = Score.objects.all().order_by('-score')[:10]
     return render(request, 'score_board.html', {'scores': scores})
