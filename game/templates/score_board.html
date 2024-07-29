@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Score Board{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for score in scores %}
+            <li>{{ score.score }} - {{ score.timestamp }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
