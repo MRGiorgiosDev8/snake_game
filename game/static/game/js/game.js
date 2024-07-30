@@ -157,8 +157,8 @@ function showGameOverModal() {
 }
 
 function restartGame() {
-    init();  
+    init();
 }
 
 init();
-usernameModal.style.display = "flex";  
+usernameModal.style.display = "flex";
