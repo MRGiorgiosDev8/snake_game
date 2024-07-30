@@ -339,15 +339,3 @@ a.exitBtn:hover {
 .score-table tbody tr:last-of-type {
     border-bottom: 2px solid #00987aa2;
 }
-
-.rating {
-    color: gold;
-}
-
-.username {
-    color: rgba(255, 255, 0, 0.772);
-}
-
-.date {
-    color: rgba(90, 220, 4, 0.863);
-}
