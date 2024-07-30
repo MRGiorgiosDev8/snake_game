@@ -37,6 +37,7 @@ h1, h2 {
 
 .sidebar {
     width: 230px;
+    /* height: 340px; */
     background: rgba(189, 218, 189, 0.458);
     padding: 15px;
     margin-right: 100px;
@@ -179,7 +180,7 @@ canvas {
     margin-bottom: 30px;
     padding: 7px;
     background-color: rgba(255, 255, 255, 0.82);
-    border-radius: 30px;
+    border-radius: 7px;
 }
 
 .modal #finalScore {
@@ -209,9 +210,8 @@ canvas {
 #restartBtn {
     background-color: #f4f9ec;
     color: rgba(43, 43, 43, 0.828);
-    padding: 10px 20px;
+    padding: 7px 20px;
     margin: 10px 0;
-    border: none;
     cursor: pointer;
     width: 100%;
     font-size: 16px;
@@ -225,7 +225,75 @@ canvas {
 }
 
 #restartBtn:hover {
-    background-color: #eec06abf;
+    background-color: #6eb04fbf;;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+}
+
+.enterName {
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1px;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    padding: 7px;
+    background-color: rgba(255, 255, 255, 0.82);
+    border-radius: 7px;
+    color: rgba(246, 94, 43, 0.809);
+}
+
+#usernameInput {
+    padding: 7px;
+    margin-top: 11px;
+    margin-bottom: 23px;
+    margin-left: 1px;
+    border-radius: 7px;
+    border: 1px solid rgba(156, 155, 155, 0.835);
+}
+
+#startGameBtn {
+    padding: 7px;
+    margin-left: 1px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.542);
+    cursor: pointer;
+    background: #f2f5ef;
+    color: rgba(43, 43, 43, 0.828);
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.9em;
+    transition: all ease-in-out 0.3s;
+}
+
+#startGameBtn:hover {
+    background: #6eb04fbf;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+a.exitBtn {
+    display: block;
+    margin-top: 7px;
+    padding: 7px 20px;
+    background-color: #f4f9ec;
+    color: rgba(43, 43, 43, 0.828);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid rgba(156, 155, 155, 0.516);
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    transition: all ease-in-out 0.3s;
+}
+
+a.exitBtn:hover {
+    background-color: rgb(247, 105, 105);
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
 }
