@@ -207,6 +207,10 @@ canvas {
     border: 1.8px solid rgb(255, 255, 255);
 }
 
+#usernameModal .modal-content {
+    display: none;
+}
+
 #restartBtn {
     background-color: #f4f9ec;
     color: rgba(43, 43, 43, 0.828);

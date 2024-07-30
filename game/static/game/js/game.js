@@ -25,8 +25,10 @@ startGameBtn.addEventListener("click", startGame);
 function startGame() {
     username = usernameInput.value;
     if (username) {
-        usernameModal.style.display = "none";
-        init();
+        gsap.to("#usernameModal .modal-content", { duration: 0.5, opacity: 0, onComplete: () => {
+            usernameModal.style.display = "none";
+            init();
+        }});
     } else {
         alert("Please enter your name.");
     }
@@ -154,6 +156,11 @@ function draw() {
 function showGameOverModal() {
     finalScore.textContent = "Score: " + score;
     gameOverModal.style.display = "flex";
+    gsap.fromTo(
+        "#gameOverModal .modal-content",
+        { scale: 0, opacity: 0 },
+        { duration: 0.5, scale: 1, opacity: 1, repeat: 0, yoyo: false }
+    );
 }
 
 function restartGame() {
@@ -161,4 +168,12 @@ function restartGame() {
 }
 
 init();
-usernameModal.style.display = "flex";
+
+setTimeout(() => {
+    usernameModal.style.display = "flex";
+    gsap.fromTo(
+        "#usernameModal .modal-content",
+        { scale: 0, opacity: 0, display: "none" },
+        { duration: 0.5, scale: 1, opacity: 1, display: "block" }
+    );
+}, 100);
