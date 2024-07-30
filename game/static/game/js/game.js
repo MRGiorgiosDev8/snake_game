@@ -159,7 +159,7 @@ function showGameOverModal() {
     gsap.fromTo(
         "#gameOverModal .modal-content",
         { scale: 0, opacity: 0 },
-        { duration: 0.5, scale: 1, opacity: 1, repeat: 0, yoyo: false }
+        { duration: 0.4, scale: 1, opacity: 1, ease: "power2.inOut", repeat: 0, yoyo: false }
     );
 }
 
@@ -174,6 +174,6 @@ setTimeout(() => {
     gsap.fromTo(
         "#usernameModal .modal-content",
         { scale: 0, opacity: 0, display: "none" },
-        { duration: 0.5, scale: 1, opacity: 1, display: "block" }
+        { duration: 0.4, scale: 1, opacity: 1, ease: "power2.inOut", display: "block" }
     );
 }, 100);
