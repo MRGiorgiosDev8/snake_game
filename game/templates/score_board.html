@@ -1,13 +1,26 @@
-   {% extends 'base.html' %}
+{% extends 'base.html' %}
 
-   {% load static %}
+{% load static %}
 
-   {% block title %}Score Board{% endblock %}
+{% block title %}Score Board{% endblock %}
 
-   {% block content %}
-       <ul>
-           {% for score in scores %}
-               <li>{{ score.username }} - {{ score.score }} - {{ score.timestamp }}</li>
-           {% endfor %}
-       </ul>
-   {% endblock %}
+{% block content %}
+    <table class="score-table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for score in scores %}
+                <tr>
+                    <td>{{ score.username }}</td>
+                    <td>{{ score.score }}</td>
+                    <td>{{ score.timestamp| date:"d-m-Y"  }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -297,3 +297,48 @@ a.exitBtn:hover {
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
 }
+
+/* styles.css */
+
+/* Таблица стилей */
+.score-table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    text-align: center;
+    width: 670px;
+    height: 600px;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    color: rgba(43, 43, 43, 0.828);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+    border-radius: 7px; 
+    overflow: hidden;
+}
+
+.score-table thead tr {
+    background-color: #00987aa2;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.score-table th, .score-table td {
+    padding: 12px 15px;
+    border: 1px solid #ffffff;
+}
+
+.score-table tbody tr {
+    border-bottom: 1px solid #ffffff;
+}
+
+.score-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.score-table tbody tr:last-of-type {
+    border-bottom: 2px solid #00987aa2;
+}
