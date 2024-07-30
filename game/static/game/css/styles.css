@@ -51,7 +51,7 @@ h1, h2 {
     opacity: 0.8;
     border-bottom: 3px solid rgb(255, 255, 255);
     padding: 11px;
-    background-color: #fcfef9c5;
+    background-color:  #f8fcf1f9;
     border-radius: 11px;
 }
 
@@ -240,7 +240,7 @@ canvas {
     padding: 7px;
     background-color: rgba(255, 255, 255, 0.82);
     border-radius: 7px;
-    color: rgba(246, 94, 43, 0.809);
+    color: rgba(23, 126, 93, 0.699);
 }
 
 #usernameInput {
