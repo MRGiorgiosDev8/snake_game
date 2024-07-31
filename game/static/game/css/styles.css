@@ -139,6 +139,8 @@ canvas {
 }
 
 #scoreBox {
+    display: none; 
+    opacity: 0;
     position: fixed;
     top: 20px;
     right: 20px;
@@ -311,7 +313,7 @@ a.exitBtn:hover {
     height: 600px;
     font-family: "Cinzel", serif;
     font-optical-sizing: auto;
-    font-weight: 500;
+    font-weight: bold;
     color: rgba(43, 43, 43, 0.828);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     opacity: 0.9;

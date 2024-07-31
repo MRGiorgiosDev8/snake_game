@@ -25,9 +25,10 @@ startGameBtn.addEventListener("click", startGame);
 function startGame() {
     username = usernameInput.value;
     if (username) {
-        gsap.to("#usernameModal .modal-content", { duration: 0.5, opacity: 0, onComplete: () => {
+        gsap.to("#usernameModal .modal-content", { duration: 0.3, opacity: 0, onComplete: () => {
             usernameModal.style.display = "none";
             init();
+            gsap.fromTo("#scoreBox", { x: 100, opacity: 0, ease: "power1.inOut", display: "none" }, { duration: 0.6, x: 0, opacity: 1, display: "block" });
         }});
     } else {
         alert("Please enter your name.");
@@ -44,6 +45,7 @@ function init() {
     score = 0;
     d = null;
     scoreBox.textContent = "Score: " + score;
+    scoreBox.style.display = "block"; 
     if (game) clearInterval(game);
     game = setInterval(draw, 100);
     gameOverModal.style.display = "none";
