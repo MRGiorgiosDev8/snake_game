@@ -360,8 +360,8 @@ a.exitBtn:hover {
 
 /* Media */
 
-@media (min-width: 1200px) and (max-width: 1600px) {
-    .body {
+@media (min-width: 1500px) {
+    body {
         zoom: 1.1;
         height: 90vh;
     }
