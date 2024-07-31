@@ -357,3 +357,12 @@ a.exitBtn:hover {
 .date {
     color: rgba(90, 220, 4, 0.863);
 }
+
+/* Media */
+
+@media (min-width: 1200px) and (max-width: 1600px) {
+    .body {
+        zoom: 1.1;
+        height: 90vh;
+    }
+}
