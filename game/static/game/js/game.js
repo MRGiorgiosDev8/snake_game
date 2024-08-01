@@ -38,11 +38,25 @@ window.addEventListener("gamepaddisconnected", (event) => {
 function startGame() {
     username = usernameInput.value;
     if (username) {
-        gsap.to("#usernameModal .modal-content", { duration: 0.3, opacity: 0, onComplete: () => {
-            usernameModal.style.display = "none";
-            init();
-            gsap.fromTo("#scoreBox", { x: 100, opacity: 0, ease: "power1.inOut", display: "none" }, { duration: 0.6, x: 0, opacity: 1, display: "block" });
-        }});
+        gsap.to("#usernameModal .modal-content", { 
+            duration: 0.3, 
+            opacity: 0, 
+            onComplete: () => {
+                usernameModal.style.display = "none";
+                init();
+                gsap.fromTo("#scoreBox", { 
+                    x: 100, 
+                    opacity: 0, 
+                    ease: "power1.inOut", 
+                    display: "none" 
+                }, { 
+                    duration: 0.6, 
+                    x: 0, 
+                    opacity: 1, 
+                    display: "block" 
+                });
+            }
+        });
     } else {
         alert("Please enter your name.");
     }
@@ -78,12 +92,7 @@ function direction(event) {
 }
 
 function collision(newHead, snake) {
-    for (let i = 0; i < snake.length; i++) {
-        if (newHead.x == snake[i].x && newHead.y == snake[i].y) {
-            return true;
-        }
-    }
-    return false;
+    return snake.some(segment => newHead.x === segment.x && newHead.y === segment.y);
 }
 
 function sendScore(score) {
@@ -96,12 +105,8 @@ function sendScore(score) {
         body: JSON.stringify({ score: score, username: username })
     })
     .then(response => response.json())
-    .then(data => {
-        console.log('Score saved:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+    .then(data => console.log('Score saved:', data))
+    .catch(error => console.error('Error:', error));
 }
 
 function getCookie(name) {
@@ -123,9 +128,8 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = (i == 0) ? "#49C75D" : "#88C635";
+        ctx.fillStyle = (i === 0) ? "#49C75D" : "#88C635";
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
-
         ctx.strokeStyle = "white";
         ctx.strokeRect(snake[i].x, snake[i].y, box, box);
     }
@@ -138,26 +142,24 @@ function draw() {
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
-    if (d == "LEFT") snakeX -= box;
-    if (d == "UP") snakeY -= box;
-    if (d == "RIGHT") snakeX += box;
-    if (d == "DOWN") snakeY += box;
+    if (d === "LEFT") snakeX -= box;
+    if (d === "UP") snakeY -= box;
+    if (d === "RIGHT") snakeX += box;
+    if (d === "DOWN") snakeY += box;
 
-    if (snakeX == food.x && snakeY == food.y) {
+    if (snakeX === food.x && snakeY === food.y) {
         score++;
         food = {
             x: Math.floor(Math.random() * 19 + 1) * box,
             y: Math.floor(Math.random() * 19 + 1) * box
         };
         scoreBox.textContent = "Score: " + score;
+        animateFood();
     } else {
         snake.pop();
     }
 
-    let newHead = {
-        x: snakeX,
-        y: snakeY
-    };
+    let newHead = { x: snakeX, y: snakeY };
 
     if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
         clearInterval(game);
@@ -172,10 +174,9 @@ function draw() {
 function showGameOverModal() {
     finalScore.textContent = "Score: " + score;
     gameOverModal.style.display = "flex";
-    gsap.fromTo(
-        "#gameOverModal .modal-content",
-        { scale: 0, opacity: 0 },
-        { duration: 0.4, scale: 1, opacity: 1, ease: "power2.inOut", repeat: 0, yoyo: false }
+    gsap.fromTo("#gameOverModal .modal-content", 
+        { scale: 0, opacity: 0 }, 
+        { duration: 0.4, scale: 1, opacity: 1, ease: "power2.inOut" }
     );
 }
 
@@ -201,13 +202,25 @@ function updateGamepad() {
     requestAnimationFrame(updateGamepad);
 }
 
+function animateFood() {
+    gsap.fromTo("#gameCanvas", 
+        { backgroundColor: "#d9fad29c" }, 
+        {   ease: "bounce.out",
+            duration: 0.3, 
+            backgroundColor: "#fff", 
+            onComplete: () => {
+                canvas.style.backgroundColor = "";
+            }
+        }
+    );
+}
+
 init();
 
 setTimeout(() => {
     usernameModal.style.display = "flex";
-    gsap.fromTo(
-        "#usernameModal .modal-content",
-        { scale: 0, opacity: 0, display: "none" },
+    gsap.fromTo("#usernameModal .modal-content", 
+        { scale: 0, opacity: 0, display: "none" }, 
         { duration: 0.4, scale: 1, opacity: 1, ease: "power2.inOut", display: "block" }
     );
 }, 100);
