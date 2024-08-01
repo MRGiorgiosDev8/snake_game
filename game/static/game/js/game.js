@@ -17,10 +17,23 @@ let score;
 let d;
 let game;
 let username;
+let gamepadIndex = null;
 
 document.addEventListener("keydown", direction);
 restartBtn.addEventListener("click", restartGame);
 startGameBtn.addEventListener("click", startGame);
+
+window.addEventListener("gamepadconnected", (event) => {
+    console.log("Gamepad connected:", event.gamepad);
+    gamepadIndex = event.gamepad.index;
+});
+
+window.addEventListener("gamepaddisconnected", (event) => {
+    console.log("Gamepad disconnected:", event.gamepad);
+    if (gamepadIndex === event.gamepad.index) {
+        gamepadIndex = null;
+    }
+});
 
 function startGame() {
     username = usernameInput.value;
@@ -49,6 +62,7 @@ function init() {
     if (game) clearInterval(game);
     game = setInterval(draw, 100);
     gameOverModal.style.display = "none";
+    updateGamepad();
 }
 
 function direction(event) {
@@ -167,6 +181,24 @@ function showGameOverModal() {
 
 function restartGame() {
     init();
+}
+
+function updateGamepad() {
+    if (gamepadIndex !== null) {
+        const gamepad = navigator.getGamepads()[gamepadIndex];
+        if (gamepad) {
+            if (gamepad.buttons[14].pressed && d != "RIGHT") { 
+                d = "LEFT";
+            } else if (gamepad.buttons[12].pressed && d != "DOWN") { 
+                d = "UP";
+            } else if (gamepad.buttons[15].pressed && d != "LEFT") { 
+                d = "RIGHT";
+            } else if (gamepad.buttons[13].pressed && d != "UP") { 
+                d = "DOWN";
+            }
+        }
+    }
+    requestAnimationFrame(updateGamepad);
 }
 
 init();
