@@ -311,9 +311,9 @@ a.exitBtn:hover {
     text-align: center;
     width: 670px;
     height: 600px;
-    font-family: "Cinzel", serif;
-    font-optical-sizing: auto;
-    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.1em;
+    font-weight: 500;
     color: rgba(43, 43, 43, 0.828);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     opacity: 0.9;
@@ -348,14 +348,21 @@ a.exitBtn:hover {
 
 .rating {
     color: gold;
+    vertical-align: -2px;
 }
 
 .username {
     color: rgba(255, 255, 0, 0.772);
+    vertical-align: -5px;
 }
 
 .date {
     color: rgba(90, 220, 4, 0.863);
+    vertical-align: -4px;
+}
+
+.rating, .username, .date {
+    font-size: 2.1em;
 }
 
 /* Media */
