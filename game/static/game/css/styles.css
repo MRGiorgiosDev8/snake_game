@@ -372,4 +372,16 @@ a.exitBtn:hover {
         zoom: 1.1;
         height: 90vh;
     }
+
+    .rating, .username, .date {
+        font-size: 1em;
+    }
+
+    .score-table thead tr {
+        font-size: 1.6em;
+    }
+
+    .rating, .username, .date {
+        vertical-align: -1px;
+    }
 }

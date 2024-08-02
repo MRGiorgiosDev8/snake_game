@@ -124,6 +124,19 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function vibrateGamepad() {
+    if (gamepadIndex !== null) {
+        const gamepad = navigator.getGamepads()[gamepadIndex];
+        if (gamepad && gamepad.vibrationActuator) {
+            gamepad.vibrationActuator.playEffect("dual-rumble", {
+                duration: 200, 
+                strongMagnitude: 0.75, 
+                weakMagnitude: 0.5 
+            });
+        }
+    }
+}
+
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -154,6 +167,7 @@ function draw() {
             y: Math.floor(Math.random() * 19 + 1) * box
         };
         scoreBox.textContent = "Score: " + score;
+        vibrateGamepad(); 
         animateFood();
     } else {
         snake.pop();
