@@ -358,7 +358,7 @@ a.exitBtn:hover {
 
 .date {
     color: rgba(90, 220, 4, 0.863);
-    vertical-align: -4px;
+    vertical-align: -2px;
 }
 
 .rating, .username, .date {
