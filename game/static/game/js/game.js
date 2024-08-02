@@ -38,22 +38,22 @@ window.addEventListener("gamepaddisconnected", (event) => {
 function startGame() {
     username = usernameInput.value;
     if (username) {
-        gsap.to("#usernameModal .modal-content", { 
-            duration: 0.3, 
-            opacity: 0, 
+        gsap.to("#usernameModal .modal-content", {
+            duration: 0.3,
+            opacity: 0,
             onComplete: () => {
                 usernameModal.style.display = "none";
                 init();
-                gsap.fromTo("#scoreBox", { 
-                    x: 100, 
-                    opacity: 0, 
-                    ease: "power1.inOut", 
-                    display: "none" 
-                }, { 
-                    duration: 0.6, 
-                    x: 0, 
-                    opacity: 1, 
-                    display: "block" 
+                gsap.fromTo("#scoreBox", {
+                    x: 100,
+                    opacity: 0,
+                    ease: "power1.inOut",
+                    display: "none"
+                }, {
+                    duration: 0.6,
+                    x: 0,
+                    opacity: 1,
+                    display: "block"
                 });
             }
         });
@@ -72,7 +72,7 @@ function init() {
     score = 0;
     d = null;
     scoreBox.textContent = "Score: " + score;
-    scoreBox.style.display = "block"; 
+    scoreBox.style.display = "block";
     if (game) clearInterval(game);
     game = setInterval(draw, 100);
     gameOverModal.style.display = "none";
@@ -129,9 +129,9 @@ function vibrateGamepad() {
         const gamepad = navigator.getGamepads()[gamepadIndex];
         if (gamepad && gamepad.vibrationActuator) {
             gamepad.vibrationActuator.playEffect("dual-rumble", {
-                duration: 200, 
-                strongMagnitude: 0.75, 
-                weakMagnitude: 0.5 
+                duration: 200,
+                strongMagnitude: 0.75,
+                weakMagnitude: 0.5
             });
         }
     }
@@ -167,7 +167,7 @@ function draw() {
             y: Math.floor(Math.random() * 19 + 1) * box
         };
         scoreBox.textContent = "Score: " + score;
-        vibrateGamepad(); 
+        vibrateGamepad();
         animateFood();
     } else {
         snake.pop();
@@ -188,8 +188,8 @@ function draw() {
 function showGameOverModal() {
     finalScore.textContent = "Score: " + score;
     gameOverModal.style.display = "flex";
-    gsap.fromTo("#gameOverModal .modal-content", 
-        { scale: 0, opacity: 0 }, 
+    gsap.fromTo("#gameOverModal .modal-content",
+        { scale: 0, opacity: 0 },
         { duration: 0.4, scale: 1, opacity: 1, ease: "power2.inOut" }
     );
 }
@@ -202,13 +202,13 @@ function updateGamepad() {
     if (gamepadIndex !== null) {
         const gamepad = navigator.getGamepads()[gamepadIndex];
         if (gamepad) {
-            if (gamepad.buttons[14].pressed && d != "RIGHT") { 
+            if (gamepad.buttons[14].pressed && d != "RIGHT") {
                 d = "LEFT";
-            } else if (gamepad.buttons[12].pressed && d != "DOWN") { 
+            } else if (gamepad.buttons[12].pressed && d != "DOWN") {
                 d = "UP";
-            } else if (gamepad.buttons[15].pressed && d != "LEFT") { 
+            } else if (gamepad.buttons[15].pressed && d != "LEFT") {
                 d = "RIGHT";
-            } else if (gamepad.buttons[13].pressed && d != "UP") { 
+            } else if (gamepad.buttons[13].pressed && d != "UP") {
                 d = "DOWN";
             }
         }
@@ -217,11 +217,11 @@ function updateGamepad() {
 }
 
 function animateFood() {
-    gsap.fromTo("#gameCanvas", 
-        { backgroundColor: "#d9fad29c" }, 
+    gsap.fromTo("#gameCanvas",
+        { backgroundColor: "#d9fad29c" },
         {   ease: "bounce.out",
-            duration: 0.3, 
-            backgroundColor: "#fff", 
+            duration: 0.3,
+            backgroundColor: "#fff",
             onComplete: () => {
                 canvas.style.backgroundColor = "";
             }
@@ -233,8 +233,8 @@ init();
 
 setTimeout(() => {
     usernameModal.style.display = "flex";
-    gsap.fromTo("#usernameModal .modal-content", 
-        { scale: 0, opacity: 0, display: "none" }, 
+    gsap.fromTo("#usernameModal .modal-content",
+        { scale: 0, opacity: 0, display: "none" },
         { duration: 0.4, scale: 1, opacity: 1, ease: "power2.inOut", display: "block" }
     );
 }, 100);
