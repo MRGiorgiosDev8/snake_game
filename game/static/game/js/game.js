@@ -169,6 +169,7 @@ function draw() {
         scoreBox.textContent = "Score: " + score;
         vibrateGamepad();
         animateFood();
+        blinkFood();
     } else {
         snake.pop();
     }
@@ -224,6 +225,26 @@ function animateFood() {
             backgroundColor: "#fff",
             onComplete: () => {
                 canvas.style.backgroundColor = "";
+            }
+        }
+    );
+}
+
+function blinkFood() {
+    const foodElement = { opacity: 1 };
+    gsap.fromTo(foodElement, 
+        { opacity: 1 },
+        {
+            duration: 0.1,
+            opacity: 0,
+            repeat: 5,
+            yoyo: true,
+            onUpdate: () => {
+                ctx.clearRect(food.x, food.y, box, box);
+                ctx.fillStyle = `rgba(247, 86, 86, ${foodElement.opacity})`;
+                ctx.fillRect(food.x, food.y, box, box);
+                ctx.strokeStyle = "white";
+                ctx.strokeRect(food.x, food.y, box, box);
             }
         }
     );
