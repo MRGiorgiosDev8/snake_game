@@ -1,6 +1,7 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const scoreBox = document.getElementById("scoreBox");
+const scoreValue = document.getElementById("scoreValue");
 
 const usernameModal = document.getElementById("usernameModal");
 const startGameBtn = document.getElementById("startGameBtn");
@@ -71,7 +72,7 @@ function init() {
     };
     score = 0;
     d = null;
-    scoreBox.textContent = "Score: " + score;
+    scoreValue.textContent = score;
     scoreBox.style.display = "block";
     if (game) clearInterval(game);
     game = setInterval(draw, 100);
@@ -166,7 +167,8 @@ function draw() {
             x: Math.floor(Math.random() * 19 + 1) * box,
             y: Math.floor(Math.random() * 19 + 1) * box
         };
-        scoreBox.textContent = "Score: " + score;
+        scoreValue.textContent = score;
+        animateScore();
         vibrateGamepad();
         animateFood();
         blinkFood();
@@ -250,12 +252,24 @@ function blinkFood() {
     );
 }
 
+function animateScore() {
+    gsap.fromTo("#scoreValue", {
+        y: 20,
+        opacity: 0
+    }, {
+        duration: 0.4,
+        y: 0,
+        opacity: 1,
+        ease: "bounce.out"
+    });
+}
+
 init();
 
 setTimeout(() => {
     usernameModal.style.display = "flex";
     gsap.fromTo("#usernameModal .modal-content",
         { scale: 0, opacity: 0, display: "none" },
-        { duration: 0.4, scale: 1, opacity: 1, ease: "power2.inOut", display: "block" }
+        { duration: 0.4, scale:1, opacity: 1, ease: "power2.inOut", display: "block" }
     );
-}, 100);
+    }, 100);
