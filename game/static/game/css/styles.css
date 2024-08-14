@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,6 +12,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #ccf7b05b;
+    overflow: hidden;
 }
 
 h2 {
@@ -367,7 +369,7 @@ a.exitBtn:hover {
 
 /* Media */
 
-@media (min-width: 1500px) {
+@media (min-width: 1600px) {
     body {
         zoom: 1.1;
         height: 90vh;
