@@ -461,7 +461,7 @@ h3 {
 }
 
 input:checked + .slider {
-    background-color: #5e4493;
+    background-color: #654e95;
 }
 
 input:checked + .slider:before {

@@ -6,24 +6,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkThemeURL = "/static/game/css/dark-styles.css";
 
     const currentTheme = localStorage.getItem('theme') || 'light';
-
+    const sliderAnimated = localStorage.getItem('sliderAnimated') || 'false';
 
     themeStylesheet.setAttribute('href', currentTheme === 'dark' ? darkThemeURL : lightThemeURL);
+    themeToggleBtn.checked = currentTheme === 'dark';
 
-    themeToggleBtn.addEventListener('click', () => {
+    if (sliderAnimated === 'false') {
+        themeToggleBtn.checked = currentTheme === 'dark';
+        localStorage.setItem('sliderAnimated', 'true');
+    }
+
+    themeToggleBtn.addEventListener('change', () => {
+        const newTheme = themeToggleBtn.checked ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
+        localStorage.setItem('sliderAnimated', 'true');
+
         gsap.to('body', {
-            duration: 0.4, 
+            duration: 0.4,
             opacity: 0,
             ease: "bounce.in",
             onComplete: () => {
-                if (themeStylesheet.getAttribute('href') === lightThemeURL) {
-                    themeStylesheet.setAttribute('href', darkThemeURL);
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    themeStylesheet.setAttribute('href', lightThemeURL);
-                    localStorage.setItem('theme', 'light');
-                }
-                gsap.to('body', { duration: 0.4, opacity: 1, ease: "bounce.in", });
+                themeStylesheet.setAttribute('href', newTheme === 'dark' ? darkThemeURL : lightThemeURL);
+                gsap.to('body', { duration: 0.4, opacity: 1, ease: "bounce.in" });
             }
         });
     });
