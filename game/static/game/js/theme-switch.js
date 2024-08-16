@@ -1,33 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('themeToggle');
     const themeStylesheet = document.getElementById('themeStylesheet');
+    const themeImage = document.getElementById('themeImage'); 
 
     const lightThemeURL = "/static/game/css/styles.css";
     const darkThemeURL = "/static/game/css/dark-styles.css";
 
+    const lightImageURL = "/static/game/images/snakecartoon1.png";
+    const darkImageURL = "/static/game/images/purplesnake.png";
+
     const currentTheme = localStorage.getItem('theme') || 'light';
-    const sliderAnimated = localStorage.getItem('sliderAnimated') || 'false';
 
     themeStylesheet.setAttribute('href', currentTheme === 'dark' ? darkThemeURL : lightThemeURL);
     themeToggleBtn.checked = currentTheme === 'dark';
-
-    if (sliderAnimated === 'false') {
-        themeToggleBtn.checked = currentTheme === 'dark';
-        localStorage.setItem('sliderAnimated', 'true');
-    }
+    themeImage.src = currentTheme === 'dark' ? darkImageURL : lightImageURL;
 
     themeToggleBtn.addEventListener('change', () => {
         const newTheme = themeToggleBtn.checked ? 'dark' : 'light';
         localStorage.setItem('theme', newTheme);
-        localStorage.setItem('sliderAnimated', 'true');
 
         gsap.to('body', {
-            duration: 0.4,
+            duration: 0.3,
             opacity: 0,
-            ease: "bounce.in",
+            ease: "power3.in",
             onComplete: () => {
                 themeStylesheet.setAttribute('href', newTheme === 'dark' ? darkThemeURL : lightThemeURL);
-                gsap.to('body', { duration: 0.4, opacity: 1, ease: "bounce.in" });
+                themeImage.src = newTheme === 'dark' ? darkImageURL : lightImageURL;
+                gsap.to('body', { duration: 0.3, opacity: 1, ease: "power3.in" });
             }
         });
     });
