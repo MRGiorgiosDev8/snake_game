@@ -21,6 +21,10 @@ h2 {
 h1 {
     color: #2a8537af;
     font-size: 2.5em;
+    padding: 7px;
+    background-color: #f0f9e6;
+    border-radius: 11px;
+    border: 1px solid rgba(210, 207, 207, 0.374);
 }
 
 h1, h2 {
@@ -69,6 +73,7 @@ h1, h2 {
     padding: 11px;
     background-color:  #f8fcf1f9;
     border-radius: 11px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.134);
 }
 
 .sidebar ul {
@@ -94,6 +99,7 @@ h1, h2 {
     font-style: normal;
     text-align: center;
     border: 1px solid rgba(156, 155, 155, 0.29);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.074);
     transition: all ease-in-out 0.3s;
 }
 
@@ -120,7 +126,7 @@ header, footer {
     background-color:  #fcfef9a4;
     border-radius: 5px;
     margin-bottom: 10px;
-    border: 1px solid rgba(156, 155, 155, 0.29);
+    border: 1px solid rgba(156, 155, 155, 0.443);
 }
 
 main {
@@ -135,7 +141,7 @@ main {
 }
 
 main, .sidebar, header, footer,  #scoreBox {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.146);
 }
 
 .img-snake {
@@ -385,7 +391,7 @@ a.exitBtn:hover {
  .theme-switch {
     width: 60px;
     height: 30px;
-    margin-bottom: 10px; 
+    margin-bottom: 30px;
     position: relative; 
 }
 
@@ -399,7 +405,8 @@ h3 {
     background: #f3f9eb;
     border-radius: 7px;
     border: 1px solid rgba(156, 155, 155, 0.29);
-    margin-bottom: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.074);
+    margin-bottom: 16px; 
     text-align: center;
 }
 
