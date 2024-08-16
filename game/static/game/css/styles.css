@@ -21,10 +21,6 @@ h2 {
 h1 {
     color: #2a8537af;
     font-size: 2.5em;
-    padding: 7px;
-    background-color: #effbe4c4;
-    border-radius: 11px;
-    border: 1px solid rgba(191, 190, 190, 0.241);
 }
 
 h1, h2 {
@@ -84,7 +80,6 @@ h1, h2 {
     text-align: center;
     border: 1px solid rgba(156, 155, 155, 0.29);
     transition: all ease-in-out 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.094);
 }
 
 .sidebar ul li a:hover {
@@ -395,7 +390,6 @@ h3 {
     background: #f3f9eb;
     border-radius: 7px;
     border: 1px solid rgba(156, 155, 155, 0.29);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.09);
 }
 
 .theme-switch input {
@@ -436,6 +430,33 @@ input:checked + .slider:before {
 }
 
 /* Media */
+@media (min-width: 1500px) {
+    .theme-switch {
+        position: absolute; 
+        bottom: 20%; 
+        left: 18%; 
+        transform: translateX(-50%); 
+        width: 60px; 
+        height: 30px; 
+    }
+    
+    h3 {
+        position: absolute; 
+        bottom: 27%; 
+        left: 18%; 
+        transform: translateX(-50%); 
+        font-family: "Cinzel", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        letter-spacing: 1px;
+        opacity: 0.8;
+        padding: 3px;
+        background: #f3f9eb;
+        border-radius: 7px;
+        border: 1px solid rgba(156, 155, 155, 0.29);
+    }
+}
+
 @media (min-width: 1600px) {
     body {
         zoom: 1.1;
@@ -452,5 +473,30 @@ input:checked + .slider:before {
 
     .rating, .username, .date {
         vertical-align: -1px;
+    }
+
+    .theme-switch {
+        position: absolute; 
+        bottom: 20%; 
+        left: 22%; 
+        transform: translateX(-50%); 
+        width: 60px; 
+        height: 30px; 
+    }
+    
+    h3 {
+        position: absolute; 
+        bottom: 27%; 
+        left: 22%; 
+        transform: translateX(-50%); 
+        font-family: "Cinzel", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        letter-spacing: 1px;
+        opacity: 0.8;
+        padding: 3px;
+        background: #f3f9eb;
+        border-radius: 7px;
+        border: 1px solid rgba(156, 155, 155, 0.29);
     }
 }

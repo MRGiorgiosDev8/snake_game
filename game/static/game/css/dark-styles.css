@@ -99,7 +99,6 @@ h1, h2 {
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.295);
     transition: all ease-in-out 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.243);
 }
 
 .sidebar ul li a:hover {
@@ -140,14 +139,14 @@ main {
 }
 
 main, .sidebar, header, footer,  #scoreBox {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.159);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .img-snake {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 2px solid #c6c5c518;
+    border: 2px solid #30214c46;
     border-radius: 11px;
     opacity: 0.8;
 }
@@ -171,11 +170,10 @@ canvas {
     border-radius: 5px;
     font-size: 1.6em;
     color: #e94641e5;
-    background: #d2b7d7db;
+    background: #9F7EA7;
     -webkit-text-stroke: 0.6px #cbaaca77;
-    text-shadow: 1px 1px 2px rgb(131, 130, 130), 0 0 1em rgba(255, 255, 255, 0.397);
+    text-shadow: 1px 1px 2px rgb(131, 130, 130), 0 0 1em white;
     border: 2px solid rgba(255, 255, 255, 0.377);
-    filter: brightness(1.1);
     font-family: "Black Ops One", system-ui;
     font-weight: 400;
     font-style: normal;
@@ -431,7 +429,6 @@ h3 {
     text-shadow: 1px 1px 2px rgb(185, 185, 185), 0 0 1em white;
     border-radius: 7px;
     border: 1px solid rgba(255, 255, 255, 0.295);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.187);
 }
 
 .theme-switch input {
@@ -472,6 +469,33 @@ input:checked + .slider:before {
 }
 
 /* Media */
+@media (min-width: 1500px) {
+    .theme-switch {
+        position: absolute; 
+        bottom: 20%; 
+        left: 18%; 
+        transform: translateX(-50%); 
+        width: 60px; 
+        height: 30px; 
+    }
+    
+    h3 {
+        position: absolute; 
+        bottom: 27%; 
+        left: 18%; 
+        transform: translateX(-50%); 
+        font-family: "Cinzel", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        letter-spacing: 1px;
+        opacity: 0.8;
+        padding: 3px;
+        background: #f3f9eb;
+        border-radius: 7px;
+        border: 1px solid rgba(156, 155, 155, 0.29);
+    }
+}
+
 @media (min-width: 1600px) {
     body {
         zoom: 1.1;
@@ -488,5 +512,30 @@ input:checked + .slider:before {
 
     .rating, .username, .date {
         vertical-align: -1px;
+    }
+
+    .theme-switch {
+        position: absolute; 
+        bottom: 20%; 
+        left: 22%; 
+        transform: translateX(-50%); 
+        width: 60px; 
+        height: 30px; 
+    }
+    
+    h3 {
+        position: absolute; 
+        bottom: 27%; 
+        left: 22%; 
+        transform: translateX(-50%); 
+        font-family: "Cinzel", serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        letter-spacing: 1px;
+        opacity: 0.8;
+        padding: 3px;
+        background: #f3f9eb;
+        border-radius: 7px;
+        border: 1px solid rgba(156, 155, 155, 0.29);
     }
 }
