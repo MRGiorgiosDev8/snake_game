@@ -15,17 +15,21 @@
 <body>
     <div class="wrapper">
         <div class="sidebar">
+            <div class="top-content ">
             <h2>Menu</h2>
             <ul>
                 <li><a href="{% url 'start_game' %}">Start Game</a></li>
                 <li><a href="{% url 'score_board' %}">Top 10</a></li>
                 <li><a href="{% url 'home' %}">Exit</a></li>
             </ul>
+            </div>
+            <div class="bottom-content">
             <h3>Theme Switch</h3>
            <div class="theme-switch">
             <input type="checkbox" id="themeToggle">
             <label class="slider" for="themeToggle"></label>
            </div>
+            </div>
         </div>
         <div class="content">
             <header>
