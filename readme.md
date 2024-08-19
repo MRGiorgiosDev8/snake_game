@@ -30,6 +30,7 @@
 - Поддержка управления с клавиатуры и геймпада
 - Вибрация на геймпаде при поедании еды
 - Сохранение счета игрока
+- Возможность менять темы интерфейса (обновлено)
 
 ## Требования
 
@@ -87,18 +88,21 @@ snake_game/
 │   ├── admin.py              
 │   ├── apps.py              
 │   ├── models.py
-    ├── tests.py             
+|   ├── tests.py             
 │   ├── urls.py               
 │   ├── views.py             
 │   └── static/
 │       ├── game/
 │       │   ├── css/
-│       │   │   └── styles.css    
+│       │   │   └── styles.css
+|       |   |   └── dark-styles.css     
 │       │   ├── js/
 │       │   │   ├── game.js       
-│       │   │   └── rating-animated.js   
+│       │   │   └── rating-animated.js
+|       |   |   └── theme-switch.js   
 │       │   └── images/
-│       │       └── snakecartoon1.png 
+│       │       └── purplesnake.png
+|       |       └── snakecartoon1.png 
 ├── templates/
 │   ├── base.html             
 │   ├── game.html             
