@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', newTheme);
 
         gsap.to('body', {
-            duration: 0.3,
+            duration: 0.1,
             opacity: 0,
             ease: "power3.in",
             onComplete: () => {
