@@ -387,6 +387,13 @@ a.exitBtn:hover {
     font-size: 2.1em;
 }
 
+/* Стили для snake */
+:root {
+    --snake-head-color: #49C75D; 
+    --snake-body-color: #88C635; 
+    --food-color: #FF4500;  
+}
+
  /* Стили для переключателя */
  .theme-switch {
     width: 60px;

@@ -141,14 +141,18 @@ function vibrateGamepad() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    const snakeHeadColor = getComputedStyle(document.documentElement).getPropertyValue('--snake-head-color').trim();
+    const snakeBodyColor = getComputedStyle(document.documentElement).getPropertyValue('--snake-body-color').trim();
+    const foodColor = getComputedStyle(document.documentElement).getPropertyValue('--food-color').trim();
+
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = (i === 0) ? "#49C75D" : "#88C635";
+        ctx.fillStyle = (i === 0) ? snakeHeadColor : snakeBodyColor;
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
         ctx.strokeStyle = "white";
         ctx.strokeRect(snake[i].x, snake[i].y, box, box);
     }
 
-    ctx.fillStyle = "#F75656";
+    ctx.fillStyle = foodColor;
     ctx.fillRect(food.x, food.y, box, box);
     ctx.strokeStyle = "white";
     ctx.strokeRect(food.x, food.y, box, box);
