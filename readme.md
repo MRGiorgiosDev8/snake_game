@@ -109,6 +109,6 @@ snake_game/
 │   ├── home.html             
 │   └── score_board.html
 ├──staticfiles      
-├── manage.py                
+└── manage.py                
 └── README.md
 └── requirements.txt
