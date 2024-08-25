@@ -189,7 +189,8 @@ canvas {
     overflow: auto; 
     background-color: rgb(0, 0, 0); 
     background-color: rgba(0, 0, 0, 0.4); 
-    display: flex; 
+    display: block; 
+    margin: 0 auto;
     justify-content: center; 
     align-items: center;
 }
@@ -205,6 +206,7 @@ canvas {
     padding: 7px;
     background-color: rgba(255, 255, 255, 0.82);
     border-radius: 7px;
+    border: 1px solid rgba(156, 155, 155, 0.597);
 }
 
 .modal #finalScore {
@@ -269,6 +271,7 @@ canvas {
     background-color: rgba(255, 255, 255, 0.82);
     border-radius: 7px;
     color: #7ab59a;
+    border: 1px solid rgba(156, 155, 155, 0.597);
 }
 
 #usernameInput {
