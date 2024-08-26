@@ -19,6 +19,7 @@ let d;
 let game;
 let username;
 let gamepadIndex = null;
+let speed; 
 
 document.addEventListener("keydown", direction);
 restartBtn.addEventListener("click", restartGame);
@@ -72,10 +73,11 @@ function init() {
     };
     score = 0;
     d = null;
+    speed = 90; 
     scoreValue.textContent = score;
     scoreBox.style.display = "block";
     if (game) clearInterval(game);
-    game = setInterval(draw, 100);
+    game = setInterval(draw, speed);
     gameOverModal.style.display = "none";
     updateGamepad();
 }
@@ -176,6 +178,11 @@ function draw() {
         vibrateGamepad();
         animateFood();
         blinkFood();
+
+        speed *= 0.98; 
+        clearInterval(game);
+        game = setInterval(draw, speed);
+
     } else {
         snake.pop();
     }
